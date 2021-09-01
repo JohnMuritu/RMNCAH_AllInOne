@@ -328,7 +328,6 @@ const ClientDetails = (props) => {
                                 //    option.mflCode === value.mflCode
                                 //}
 
-
                                 onChange={(event, newValue) => {
                                     formik.setFieldValue('mfl_code', newValue.mflCode);
                                     formik.setFieldValue(
