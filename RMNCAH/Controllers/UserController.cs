@@ -144,6 +144,7 @@ namespace RMNCAH_api.Controllers
         {
             var user = _userManager.Users.SingleOrDefault(u => u.UserName == userLoginResource.Username);
             if (user is null)
+
             {
                 return Unauthorized("Invalid Credentials");
             }

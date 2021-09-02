@@ -28,7 +28,7 @@ const ClientClinicalDetailsList = (props) => {
         setRowData(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -39,7 +39,7 @@ const ClientClinicalDetailsList = (props) => {
 
   const onSelectionChanged = () => {
     var selectedRow = gridApi.getSelectedRows();
-    console.log(selectedRow);
+    // console.log(selectedRow);
     dispatch({
       type: ACTION_TYPES.SET_CLIENT_CLINICAL_DETAILS,
       payload: selectedRow[0]

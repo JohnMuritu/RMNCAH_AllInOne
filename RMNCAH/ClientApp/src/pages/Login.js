@@ -15,8 +15,6 @@ import {
   TextField,
   Typography
 } from '@material-ui/core';
-import FacebookIcon from '../icons/Facebook';
-import GoogleIcon from '../icons/Google';
 import * as ACTION_TYPES from '../actions/actions';
 
 const Login = () => {
@@ -24,7 +22,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const handleLogin = (values) => {
-    console.log(values);
+    // console.log(values);
     axios
       .post('/api/user/signin', values)
       .then((response) => {

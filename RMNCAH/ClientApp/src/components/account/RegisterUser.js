@@ -42,7 +42,7 @@ const RegisterUser = () => {
           });
         })
         .catch((error) => {
-          console.log(`error : ${error}`);
+          // console.log(`error : ${error}`);
           NotificationManager.error('Error occured!!!', '', 2000);
         });
     } else {

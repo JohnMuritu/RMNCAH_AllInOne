@@ -42,7 +42,7 @@ const ClientDetails = (props) => {
     const [CHVsFetched, setCHVsFetched] = useState(false);
 
     const handleSave = (clientDetails) => {
-        console.log(clientDetails);
+        // console.log(clientDetails);
         if (clientDetails.clientId === '') {
             clientDetails.clientId = uuidv4();
             // console.log(clientDetails);
@@ -57,7 +57,7 @@ const ClientDetails = (props) => {
                     });
                 })
                 .catch((error) => {
-                    console.log(`error : ${error}`);
+                    // console.log(`error : ${error}`);
                     NotificationManager.error('Error Save!', '', 10000);
                     clientDetails.clientId = '';
                 });
@@ -73,7 +73,7 @@ const ClientDetails = (props) => {
                     });
                 })
                 .catch((error) => {
-                    console.log(`error : ${error}`);
+                    // console.log(`error : ${error}`);
                     NotificationManager.error('Error Update!', '', 10000);
                 });
         }
@@ -89,24 +89,24 @@ const ClientDetails = (props) => {
             .get('/api/healthfacility')
             .then((response) => {
                 setHealthFacilities(response.data);
-                console.log('fetching facilities');
+                // console.log('fetching facilities');
                 setHealthFacilitiesFetched(true);
             })
             .catch((error) => {
-                console.log(`error : ${error}`);
+                // console.log(`error : ${error}`);
             });
     };
 
     const getCHVs = () => {
         axios
-            .get('/api/utils/chvs')
+            .get('/api/utils/activechvs')
             .then((response) => {
                 setCHVs(response.data);
-                console.log('fetching CHVs');
+                // console.log('fetching CHVs');
                 setCHVsFetched(true);
             })
             .catch((error) => {
-                console.log(`error : ${error}`);
+                // console.log(`error : ${error}`);
             });
     };
 

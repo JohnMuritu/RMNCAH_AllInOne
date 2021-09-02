@@ -24,7 +24,7 @@ const SettingsPassword = () => {
         // navigate('/app/registerclient');
       })
       .catch((error) => {
-        console.log(`error : ${error}`);
+        // console.log(`error : ${error}`);
         NotificationManager.error('Error occured!!!', '', 2000);
       });
   };

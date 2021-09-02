@@ -112,10 +112,10 @@ const ClientClinicalDetails = (props) => {
     };
 
     const handleSave = (clientClinicalDetails) => {
-        console.log(ClientClinicalDetails);
+        // console.log(ClientClinicalDetails);
         if (clientClinicalDetails.clientClinicalDetailsId === '') {
             clientClinicalDetails.clientClinicalDetailsId = uuidv4();
-            console.log(clientClinicalDetails);
+            // console.log(clientClinicalDetails);
             axios
                 .post('/api/client/addClientClinicalDetails', clientClinicalDetails)
                 .then((response) => {
@@ -126,12 +126,12 @@ const ClientClinicalDetails = (props) => {
                     });
                 })
                 .catch((error) => {
-                    console.log(`error : ${error}`);
+                    // console.log(`error : ${error}`);
                     NotificationManager.error('Error Save!', '', 10000);
                     clientClinicalDetails.clientClinicalDetailsId = '';
                 });
         } else {
-            console.log(clientClinicalDetails);
+            // console.log(clientClinicalDetails);
             axios
                 .post('/api/client/UpdateClientClinicalDetails', clientClinicalDetails)
                 .then((response) => {
@@ -141,7 +141,7 @@ const ClientClinicalDetails = (props) => {
                     });
                 })
                 .catch((error) => {
-                    console.log(`error : ${error}`);
+                    // console.log(`error : ${error}`);
                     NotificationManager.error('Error Update!', '', 10000);
                 });
         }
@@ -166,7 +166,7 @@ const ClientClinicalDetails = (props) => {
                 setDeliveryOptions(response.data);
             })
             .catch((error) => {
-                console.log(`error : ${error}`);
+                // console.log(`error : ${error}`);
             });
     };
 
@@ -177,7 +177,7 @@ const ClientClinicalDetails = (props) => {
                 setAdultRemarksOptions(response.data);
             })
             .catch((error) => {
-                console.log(`error : ${error}`);
+                // console.log(`error : ${error}`);
             });
     };
 
@@ -188,7 +188,7 @@ const ClientClinicalDetails = (props) => {
                 setChildRemarksOptions(response.data);
             })
             .catch((error) => {
-                console.log(`error : ${error}`);
+                // console.log(`error : ${error}`);
             });
     };
 
@@ -445,7 +445,6 @@ const ClientClinicalDetails = (props) => {
                                     onChange={(val) => {
                                         formik.setFieldValue('edd', val);
                                     }}
-                                    disableFuture={true}
                                     renderInput={(props) => (
                                         <TextField {...props}
                                             fullWidth

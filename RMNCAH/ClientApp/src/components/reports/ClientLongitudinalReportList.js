@@ -17,7 +17,7 @@ const ClientLongitudinalReportList = (props) => {
         setRowData(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 

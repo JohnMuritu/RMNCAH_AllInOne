@@ -24,7 +24,7 @@ const UsersList = () => {
         setRowData(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -35,7 +35,7 @@ const UsersList = () => {
 
   const onSelectionChanged = () => {
     var selectedRow = gridApi.getSelectedRows();
-    console.log(selectedRow);
+    // console.log(selectedRow);
     dispatch({
       type: ACTION_TYPES.SET_USER_DETAILS,
       payload: selectedRow[0]

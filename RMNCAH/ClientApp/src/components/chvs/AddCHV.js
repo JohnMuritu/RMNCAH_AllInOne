@@ -27,7 +27,7 @@ const AddCHV = () => {
   const chv_details = useSelector((state) => state.main_reducer.chvDetails);
 
   const handleAddCHV = (values) => {
-    console.log(values);
+    // console.log(values);
     if (values.chv_id === 0) {
       axios
         .post('/api/utils/addchvs', values)
@@ -39,7 +39,7 @@ const AddCHV = () => {
           });
         })
         .catch((error) => {
-          console.log(`error : ${error}`);
+          // console.log(`error : ${error}`);
           NotificationManager.error('Error occured!!!', '', 2000);
         });
     } else {
@@ -53,7 +53,7 @@ const AddCHV = () => {
           });
         })
         .catch((error) => {
-          console.log(`error : ${error}`);
+          // console.log(`error : ${error}`);
           NotificationManager.error('Error occured!!!', '', 2000);
         });
     }

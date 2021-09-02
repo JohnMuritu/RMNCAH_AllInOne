@@ -61,6 +61,19 @@ namespace RMNCAH_api.Controllers
             }
         }
 
+        [Authorize(Policy = Policies.User)]
+        [HttpGet("activechvs")]
+        public List<Chvs> getActiveChvs()
+        {
+            using (_applicationDbContext)
+            {
+                return _applicationDbContext
+                    .Chvs
+                    .Where(e => e.active == "1")
+                    .ToList();
+            }
+        }
+
         [Authorize(Policy = Policies.Admin)]
         [HttpPost("AddChvs")]
         public Chvs AddClientDetails(Chvs cd)
