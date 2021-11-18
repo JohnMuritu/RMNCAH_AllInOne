@@ -8,7 +8,7 @@ const initialState = {
   authenticated: false,
   clientDetails: {
     clientId: '',
-    chvId: '',
+    chv_id: '',
     chv: null,
     deptClientId: '',
     fullNames: '',

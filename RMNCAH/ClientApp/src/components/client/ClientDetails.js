@@ -8,7 +8,7 @@ import {
     Divider,
     Grid,
     TextField,
-    // Autocomplete,
+    Autocomplete,
     MenuItem
 } from '@material-ui/core';
 import axios from 'axios';
@@ -19,7 +19,7 @@ import { NotificationManager } from 'react-notifications';
 import { v4 as uuidv4 } from 'uuid';
 import 'date-fns';
 //import DateFnsUtils from '@date-io/date-fns';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+//import Autocomplete from '@material-ui/lab/Autocomplete';
 import DatePicker from '@material-ui/lab/DatePicker';
 import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
 import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
@@ -89,7 +89,7 @@ const ClientDetails = (props) => {
             .get('/api/healthfacility')
             .then((response) => {
                 setHealthFacilities(response.data);
-                // console.log('fetching facilities');
+                //console.log(response.data);
                 setHealthFacilitiesFetched(true);
             })
             .catch((error) => {
@@ -102,7 +102,7 @@ const ClientDetails = (props) => {
             .get('/api/utils/activechvs')
             .then((response) => {
                 setCHVs(response.data);
-                // console.log('fetching CHVs');
+                //console.log(response.data);
                 setCHVsFetched(true);
             })
             .catch((error) => {
@@ -122,7 +122,7 @@ const ClientDetails = (props) => {
     }, [clientDetailsFetched, updateComponent]);
 
     const SignupSchema = Yup.object().shape({
-        chvId: Yup.string().required('CHV Name is required'),
+        chv_id: Yup.string().required('CHV Name is required'),
         deptClientId: Yup.string().required('Client ID is required'),
         fullNames: Yup.string().required('Client Name is required'),
         dob: Yup.date().required('Required'),
@@ -146,7 +146,7 @@ const ClientDetails = (props) => {
     const formik = useFormik({
         initialValues: {
             clientId: '',
-            chvId: '',
+            chv_id: '',
             chv: null,
             deptClientId: '',
             fullNames: '',
@@ -202,12 +202,9 @@ const ClientDetails = (props) => {
                                 value={formik.values.chv}
                                 options={CHVs}
                                 getOptionLabel={(option) => option.chv_name}
-                                isOptionEqualToValue={(option, value) => option.chv_id === value.chvId}
-                                //getOptionSelected={(option, value) =>
-                                //    option.chv_id === value.chvId
-                                //}
+                                isOptionEqualToValue={(option, value) => option.chv_id === value.chv_id}
                                 onChange={(event, newValue) => {
-                                    formik.setFieldValue('chvId', newValue.chv_id);
+                                    formik.setFieldValue('chv_id', newValue.chv_id);
                                     formik.setFieldValue('chv', newValue);
                                 }}
                                 renderInput={(params) => (
@@ -215,8 +212,8 @@ const ClientDetails = (props) => {
                                         {...params}
                                         label="CHV Name"
                                         variant="outlined"
-                                        helperText={formik.touched.chvId && formik.errors.chvId}
-                                        error={Boolean(formik.touched.chvId && formik.errors.chvId)}
+                                        helperText={formik.touched.chv_id && formik.errors.chv_id}
+                                        error={Boolean(formik.touched.chv_id && formik.errors.chv_id)}
                                     />
                                 )}
                                 size="small"
@@ -244,7 +241,7 @@ const ClientDetails = (props) => {
 
                                 <DatePicker
                                     //mask="__-___-____"
-                                    inputFormat="dd-MMM-yyyy"
+                                    //inputFormat="dd-MMM-yyyy"
                                     label="Date of Birth"
                                     value={formik.values.dob}
                                     onChange={(val) => {
@@ -321,9 +318,9 @@ const ClientDetails = (props) => {
                                 value={formik.values.hfLinked}
                                 options={healthFacilities}
                                 getOptionLabel={(option) => option.facilityName}
-                                isOptionEqualToValue={(option, value) => {
-                                    option.mflCode === value.mfl_code
-                                }}
+                                isOptionEqualToValue={(option, value) => 
+                                    option.mflCode === value.mflCode
+                                }
                                 //getOptionSelected={(option, value) => 
                                 //    option.mflCode === value.mflCode
                                 //}
@@ -459,8 +456,9 @@ const ClientDetails = (props) => {
                         color="primary"
                         type="submit"
                         variant="contained"
-                    //onClick={() => handleSave()}
-                    // onClick={() => e.preventDefault()}
+                        //onClick={() => console.log(formik.errors)}
+                        //onClick={() => handleSave(formik.values)}
+                        // onClick={() => e.preventDefault()}
                     >
                         Save details
           </Button>
