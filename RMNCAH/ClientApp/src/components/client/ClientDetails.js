@@ -240,8 +240,8 @@ const ClientDetails = (props) => {
                             <LocalizationProvider dateAdapter={AdapterDateFns}>
 
                                 <DatePicker
-                                    //mask="__-___-____"
-                                    //inputFormat="dd-MMM-yyyy"
+                                    mask="__-___-____"
+                                    inputFormat="dd-MMM-yyyy"
                                     label="Date of Birth"
                                     value={formik.values.dob}
                                     onChange={(val) => {
